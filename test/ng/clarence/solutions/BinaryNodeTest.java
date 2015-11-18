@@ -1,12 +1,12 @@
 package ng.clarence.solutions;
 
+import static org.junit.Assert.assertEquals;
+
 import ng.clarence.collections.BinaryNode;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static org.junit.Assert.assertEquals;
 
 public class BinaryNodeTest {
 
