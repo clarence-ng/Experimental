@@ -4,6 +4,9 @@ import ng.clarence.collections.BinaryNode;
 
 import java.util.LinkedList;
 
+/**
+ * Least common ancestor between two nodes.
+ */
 public class LCABinaryTree {
 
     public static <T> int solution(BinaryNode<T> root, T first, T second) {
