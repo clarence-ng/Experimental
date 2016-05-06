@@ -2,7 +2,6 @@ package ng.clarence.collections;
 
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayMinHeapTest {
