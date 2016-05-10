@@ -12,7 +12,7 @@ import static org.junit.Assert.fail;
 public class QuickSortTest {
     @Test
     public void test() {
-        LoggerUtils.printToStdOut(Logger.getGlobal(), Level.FINEST);
+        LoggerUtils.configureLoggerForStdOut(Logger.getGlobal(), Level.FINEST);
 
         int[] input = { 0, 1, 2, 3, 4, 5};
         QuickSort.sort(input);
