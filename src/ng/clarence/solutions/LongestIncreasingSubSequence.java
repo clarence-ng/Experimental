@@ -1,6 +1,6 @@
 package ng.clarence.solutions;
 
-public class LongestIncreasingSubsequence {
+public class LongestIncreasingSubSequence {
 
     public static int solution(int[] input) {
         int[] lis = new int[input.length];
