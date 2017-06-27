@@ -29,10 +29,25 @@ public class LCABinaryTree {
         if (root == null) return false;
         path.add(root.value);
 
-        if (root.left!= null && hasValue(root.left, targetValue, path)) return true;
-        if (root.right!= null && hasValue(root.right, targetValue, path)) return true;
+        if (root.value == targetValue) return true;
+        if (hasValue(root.left, targetValue, path)) return true;
+        if (hasValue(root.right, targetValue, path)) return true;
 
         path.removeLast();
         return false;
     }
+
+    public static <T> BinaryNode<T> onePassSolution(BinaryNode<T> root, T first, T second) {
+        if (root == null) return null;
+        if (root.value == first || root.value == second) {
+            return root;
+        }
+        BinaryNode<T> leftSolution = onePassSolution(root.left, first, second);
+        BinaryNode<T> rightSolution = onePassSolution(root.right, first, second);
+        if (leftSolution != null && rightSolution != null) {
+            return root;
+        }
+        return leftSolution != null ? leftSolution : rightSolution;
+    }
+
 }
