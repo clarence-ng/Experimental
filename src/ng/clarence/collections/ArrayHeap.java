@@ -41,29 +41,24 @@ public class ArrayHeap<T> implements Heap<T> {
 
         int current = 0;
         while(current < heapSize) {
-            int leftChildIndex = getLeftChild(current);
-            int rightChildIndex = getRightChild(current);
-            if (leftChildIndex >= heapSize) {
-                break;
-            } else if (rightChildIndex >= heapSize) {
-                if (comparator.compare(values[current], values[leftChildIndex]) > 0) {
-                    swapValuesAt(current, leftChildIndex);
-                }
-                break;
-            } else {
-                if (comparator.compare(values[current], values[leftChildIndex]) > 0 ||
-                        comparator.compare(values[current], values[rightChildIndex]) > 0) {
-                    if (comparator.compare(values[leftChildIndex], values[rightChildIndex]) < 0) {
-                        swapValuesAt(current, leftChildIndex);
-                        current = leftChildIndex;
-                    } else {
-                        swapValuesAt(current, rightChildIndex);
-                        current = rightChildIndex;
-                    }
-                } else {
-                    break;
-                }
-            }
+          int leftChildIndex = getLeftChild(current);
+          int rightChildIndex = getRightChild(current);
+
+          int swapIndex = current;
+          if (leftChildIndex < heapSize
+              && comparator.compare(values[swapIndex], values[leftChildIndex]) > 0) {
+            swapIndex = leftChildIndex;
+          }
+          if (rightChildIndex < heapSize
+              && comparator.compare(values[swapIndex], values[rightChildIndex]) > 0) {
+            swapIndex = rightChildIndex;
+          }
+          if (swapIndex != current) {
+            swapValuesAt(current, swapIndex);
+            current = swapIndex;
+          } else {
+            break;
+          }
         }
         return result;
     }
